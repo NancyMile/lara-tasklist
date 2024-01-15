@@ -47,3 +47,8 @@ Route::put('/tasks/{task}', function(Task $task, TaskRequest $request){
 Route::fallback(function() {
     return "The page doesn't exist";
 });
+
+Route::delete('/tasks/{task}',function(Task $task){
+    $task->delete();
+    return  redirect()->route('tasks.index')->with('success','task deleted');
+})->name('tasks.destroy');
