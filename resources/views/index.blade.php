@@ -9,5 +9,11 @@
     </div>
     @empty
     <div>No tasks</div>
-    @endforelse ( $tasks as $task )
+    @endforelse
+
+    @if ($tasks->count())
+        <nav>
+            {{ $tasks->links() }}
+        </nav>
+    @endif
 @endsection
